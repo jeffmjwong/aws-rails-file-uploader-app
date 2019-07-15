@@ -9,7 +9,7 @@ class MainController < ApplicationController
     binding.pry
   end
 
-  def file_lists
-
+  def files
+    @files = AnyFile.all
   end
 end
