@@ -61,6 +61,6 @@ test:
 #
 production:
   <<: *default
-  database: rails-file-uploader-app_production
-  username: rails-file-uploader-app
-  password: <%= ENV['RAILS-FILE-UPLOADER-APP_DATABASE_PASSWORD'] %>
+  # database: rails-file-uploader-app_production
+  # username: rails-file-uploader-app
+  # password: <%= ENV['RAILS-FILE-UPLOADER-APP_DATABASE_PASSWORD'] %>
