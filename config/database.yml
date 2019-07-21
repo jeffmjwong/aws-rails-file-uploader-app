@@ -8,13 +8,13 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-# development:
-#   <<: *default
-#   database: rails-file-uploader-app_development
-#   username: jeffwong
-#   password: password
-#   host: localhost
-#   port: 5432
+development:
+  <<: *default
+  database: rails-file-uploader-app_development
+  username: jeffwong
+  password: password
+  host: localhost
+  port: 5432
 
 #   # Schema search path. The server defaults to $user,public
 #   #schema_search_path: myapp,sharedapp,public
@@ -24,14 +24,6 @@ default: &default
 #   #   log, notice, warning, error, fatal, and panic
 #   # Defaults to warning.
 #   #min_messages: notice
-
-development:
-  <<: *default
-  database: <%= ENV['AWS_RDS_POSTGRES_DB'] %>
-  username: <%= ENV['AWS_RDS_POSTGRES_USER'] %>
-  password: <%= ENV['AWS_RDS_POSTGRES_PASSWORD'] %>
-  host: <%= ENV['AWS_RDS_POSTGRES_HOST'] %>
-  port: <%= ENV['AWS_RDS_POSTGRES_PORT'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -61,6 +53,8 @@ test:
 #
 production:
   <<: *default
-  # database: rails-file-uploader-app_production
-  # username: rails-file-uploader-app
-  # password: <%= ENV['RAILS-FILE-UPLOADER-APP_DATABASE_PASSWORD'] %>
+  database: <%= ENV['AWS_RDS_POSTGRES_DB'] %>
+  username: <%= ENV['AWS_RDS_POSTGRES_USER'] %>
+  password: <%= ENV['AWS_RDS_POSTGRES_PASSWORD'] %>
+  host: <%= ENV['AWS_RDS_POSTGRES_HOST'] %>
+  port: <%= ENV['AWS_RDS_POSTGRES_PORT'] %>
